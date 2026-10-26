@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OMCB · Archive reader</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">◈ <strong>OMCB</strong><span>Archive reader</span></a><div class="header-actions"><span class="badge">● Только чтение</span><button id="theme-toggle" type="button" aria-pressed="false">Светлая тема</button></div></header>
+  <section class="intro"><div><p class="eyebrow">ЛАБОРАТОРИЯ АНАЛИЗА ПАКЕТОВ</p><h1>Исследуйте код. Оставьте его в архиве.</h1><p>Просматривайте исходники без распаковки. Содержимое файлов отображается как текст и не запускается.</p></div><div class="principles">Без установки пакетов<br>Без HTML-превью<br>Симлинки скрыты</div></section>
+  <main class="workspace">
+    <aside class="panel packages"><div class="panel-heading"><h2>01 / Релизы</h2><span id="package-count" class="count">…</span></div>
+      <div class="filters"><label for="package-search">Поиск пакета</label><input id="package-search" type="search" placeholder="Название архива…" autocomplete="off"><label for="ecosystem">Экосистема</label><select id="ecosystem"><option value="">Все экосистемы</option value="pypi">PyPI</option><option value="npm">npm</option></select></div>
+      <div id="package-list" class="scroll-list" aria-label="Релизы"></div>
+    </aside>
+    <section class="panel files"><div class="panel-heading"><h2>02 / Файлы</h2><span id="file-count" class="count">—</span></div>
+      <div class="filters"><label for="file-search">Поиск по путям во всём архиве</label><input id="file-search" type="search" placeholder="setup.py, index.js…" disabled autocomplete="off"><nav id="breadcrumbs" aria-label="Путь в архиве"></nav></div>
+      <div id="file-list" class="scroll-list"><p class="empty">Выберите релиз слева,<br>чтобы открыть его структуру.</p></div>
+      <div class="pager"><button id="files-prev" disabled aria-label="Предыдущая страница файлов">←</button><span id="files-page">—</span><button id="files-next" disabled aria-label="Следующая страница файлов">→</button></div>
+    </section>
+    <section class="panel reader"><div class="panel-heading"><h2>03 / Исходный код</h2><span class="count">TEXT ONLY</span></div>
+      <div class="archive-heading"><span id="selected-package">Архив не выбран</span><div id="package-label"></div></div>
+      <div class="file-heading"><strong id="selected-file">Файл не выбран</strong><span id="file-meta">Выберите файл в дереве архива</span></div>
+      <div class="reader-tools"><label class="toggle"><input id="wrap" type="checkbox"> Перенос строк</label><label class="toggle"><input id="hex" type="checkbox"> HEX</label><span id="encoding"></span></div>
+      <div id="code-container" tabindex="0" aria-label="Содержимое файла"><pre id="code">Здесь появится текст выбранного файла.
+
+.py, .js, .html и .svg открываются одинаково:
+как данные, без выполнения и рендеринга.</pre></div>
+      <div class="byte-nav"><button id="bytes-prev" disabled>← Ранее</button><form id="offset-form"><label for="offset">Смещение, байт</label><input id="offset" type="number" min="0" step="1" value="0" disabled><button id="offset-go" disabled>Перейти</button></form><button id="bytes-next" disabled>Далее →</button></div>
+    </section>
+  </main>
+  <footer><span id="status" role="status" aria-live="polite">Загрузка списка релизов…</span><span>Локальный просмотр · фрагменты по 16 KiB</span></footer>
+</body>
+</html>
