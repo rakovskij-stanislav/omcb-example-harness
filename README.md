@@ -2,6 +2,18 @@
 
 Неоптимальный навайбкоженный харнесс для домашнего задачния PT Start 2026.
 
+Задание для участников: оттриажить с помощью маленькой модели сабсет из 60 пакетов:
+
+```bash
+python harness.py /path/to/open-malicious-code-benchmark \
+  --endpoint http://127.0.0.1:1234/v1 \
+  --model minicpm5-1b \
+  --packages-file samples/balanced-60.txt \
+  --output runs/minicpm-balanced60
+```
+
+Этот харнесс предложен в качестве примера. Участники вправе использовать свой.
+
 ---
 
 
@@ -39,7 +51,7 @@ python harness.py /path/to/open-malicious-code-benchmark \
 
 ```bash
 python harness.py /path/to/open-malicious-code-benchmark \
-  --endpoint http://192.168.0.188:1234/v1 \
+  --endpoint http://127.0.0.1:1234/v1 \
   --model minicpm5-1b \
   --limit 50 \
   --output runs/minicpm-first50
@@ -90,7 +102,7 @@ npm malicious). Группы чередуются по одному релизу
 
 ```bash
 python harness.py /path/to/open-malicious-code-benchmark \
-  --endpoint http://192.168.0.188:1234/v1 \
+  --endpoint http://127.0.0.1:1234/v1 \
   --model minicpm5-1b \
   --packages-file samples/balanced-60.txt \
   --output runs/minicpm-balanced60
